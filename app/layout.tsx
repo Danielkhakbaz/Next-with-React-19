@@ -1,7 +1,9 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
+import { Link } from "next-view-transitions";
 import { LatoFont } from "@/styles/fonts";
 import { ViewTransitions } from "next-view-transitions";
+import CustomButton from "@/components/custom-button";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -32,7 +34,13 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
   return (
     <ViewTransitions>
       <html lang="en">
-        <body className={LatoFont.className}>{children}</body>
+        <body className={`${LatoFont.className} p-4`}>
+          <Link href="/">
+            <CustomButton />
+          </Link>
+          <br />
+          {children}
+        </body>
       </html>
     </ViewTransitions>
   );
